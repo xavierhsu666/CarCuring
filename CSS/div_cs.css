@@ -1,0 +1,780 @@
+@media screen and (min-width:320px) {
+    .box {
+        width: 100%;
+        background-color: green;
+        height: 20px;
+    }
+
+
+    div.gridcontainer {
+        display: grid;
+        grid-template-areas:
+            'header header header header'
+            'menu menu menu menu'
+            'main main main main'
+            'footer footer footer footer';
+        border: 2px solid black;
+        gap: 5px;
+        background: rgba(0, 0, 0, 0.3);
+        padding: 2px;
+    }
+
+    div.gridcontainer>div {
+        background: rgba(0, 0, 0, 0.3);
+        border: 2px solid black;
+    }
+
+    .grid_h {
+        grid-area: header;
+    }
+
+    .grid_me {
+        grid-area: menu;
+    }
+
+    .grid_ma {
+        grid-area: main;
+    }
+
+    .grid_f {
+        grid-area: footer;
+    }
+
+    body {
+        background-image: url("../IMG/bgimg1.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: contain;
+        background-position: center;
+        background-color: grey;
+        height: auto;
+        font-family: 'Times New Roman';
+        --min-size: 25;
+        --max-size: 40;
+        --font-size: calc((var(--min-size) * 1px) + (var(--max-size) - var(--min-size)) * ((100cqw - 320px) / (1920 - 320)));
+        font-size: clamp(var(--min-size) * 1px, var(--font-size), var(--max-size) * 1px);
+        margin: 1px;
+    }
+
+    .tab {
+
+        border: 1px solid rgba(249, 87, 56, 0.3);
+        background-color: rgba(249, 87, 56, 0.3);
+        /* background-color: white; */
+        /* width: 30%; */
+        /* min-height: 60vh;
+        height: auto; */
+        width: 100%;
+
+    }
+
+    .tablinks {
+        border: 1px solid rgba(249, 87, 56, 0.3);
+        display: flex;
+        background-color: rgba(249, 87, 56, 0.3);
+        /* background-color: white; */
+        text-align: center;
+
+
+    }
+
+    .tablink {
+        cursor: pointer;
+        height: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        margin: 0;
+        flex: 1;
+    }
+
+    .tabcontent {
+        border: 1px solid rgba(249, 87, 56, 0.3);
+        width: 100%;
+        height: 100%;
+        min-height: 60vh;
+        border-left: none;
+
+
+    }
+
+    .tabcontent_ {
+        color: white;
+        display: none;
+        height: fit-content;
+    }
+
+}
+
+@media screen and (min-width:740px) {
+    .box {
+        width: 100%;
+        background-color: blue;
+        height: 20px;
+    }
+
+    div.gridcontainer {
+        display: grid;
+        grid-template-areas:
+            'header header header header'
+            'menu main main main'
+            'menu main main main'
+            'footer footer footer footer';
+        border: 2px solid black;
+        gap: 10px;
+        background: rgba(0, 0, 0, 0.3);
+        /* padding: 10px; */
+    }
+
+    div.gridcontainer>div {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 10px;
+        border: 2px solid black;
+    }
+
+    .grid_h {
+        grid-area: header;
+    }
+
+    .grid_me {
+        grid-area: menu;
+        min-width: 450px;
+    }
+
+    .grid_ma {
+        grid-area: main;
+    }
+
+    .grid_f {
+        grid-area: footer;
+    }
+
+    body {
+        background-image: url("../IMG/bgimg1.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: contain;
+        background-position: center;
+        background-color: grey;
+        height: auto;
+        font-family: 'Times New Roman';
+        --min-size: 14;
+        --max-size: 30;
+        --font-size: calc((var(--min-size) * 2px) + (var(--max-size) - var(--min-size)) * ((100cqw - 320px) / (1920 - 320)));
+        font-size: clamp(var(--min-size) * 2px, var(--font-size), var(--max-size) * 2px);
+    }
+
+    .tab {
+        float: left;
+        border: 1px solid rgba(249, 87, 56, 0.3);
+        background-color: rgba(249, 87, 56, 0.3);
+        /* width: 30%; */
+        /* min-height: 60vh;
+        height: auto; */
+        width: 100%;
+
+    }
+
+    .tablinks {
+        float: left;
+        display: inline-block;
+        border: 1px solid rgba(249, 87, 56, 0.3);
+        background-color: rgba(249, 87, 56, 0.3);
+        width: 30%;
+        text-align: center;
+
+    }
+
+    .tablink {
+        cursor: pointer;
+        height: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        margin: 0;
+    }
+
+    .tabcontent {
+        float: left;
+        display: inline-block;
+        border: 1px solid rgba(249, 87, 56, 0.3);
+        width: 70%;
+        height: 100%;
+        min-height: 60vh;
+        border-left: none;
+
+
+    }
+
+    .tabcontent_ {
+        color: white;
+        display: none;
+        height: fit-content;
+        padding: 20px;
+    }
+}
+
+
+
+/* ##made ------------------------------------------------------------ */
+div#memberpage_1 {
+    display: block;
+    text-align: center;
+}
+div.table_div{
+    over-flow:scroll-x;
+    
+}
+input.itemchange_table {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0.5px;
+    height: 90%;
+    width: 90%;
+    margin: 1% 1% 1% 1%;
+    padding: 1px;
+    text-align: center;
+    font-size: inherit;
+    font-family: inherit;
+    border-radius: 7px;
+}
+
+div.table_addMarker {
+    border-top: 3px white solid;
+    height: 5px;
+    text-align: right;
+    height: 30px;
+    margin-bottom: 20px;
+    padding: 0px 2px 0px 0px;
+}
+
+div.table_addMarker:hover .table_addMarker_btn {
+    height: auto;
+    display: block;
+    background-color: rgba(255,255,255,1);
+}
+
+div.table_addMarker_btn {
+    float: right;
+    cursor: pointer;
+    display: block;
+    background-color: rgba(255,255,255,0.3);
+    color: black;
+    text-align: center;
+    font-weight: bolder;
+    border-radius: 0px 0px 12px 12px;
+    padding: 10px;
+}
+
+button.btnInchart {
+    background-color: rgba(40, 163, 75, 0.3);
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 70%;
+    margin-bottom: 10px;
+}
+
+p.Ptitle {
+    text-align: center;
+    width: 100%;
+    height: auto;
+    color: aliceblue;
+    background-color:rgba(231, 216, 15, 0.6);
+    margin: 0px 0px 0px 0px;
+    /* font-weight: 900; */
+}
+
+p.Ptitle:hover {
+
+    background-color: coral;
+
+}
+div.ocpage {
+    color: white;
+    text-align: center;
+    font-weight: 900;
+    align-content: center;
+
+}
+
+div.test {
+    display: inline-block;
+    position: relative;
+    border: 2px red solid;
+    width: auto;
+    height: 100px;
+    color: black;
+    padding: 12px 12px;
+    padding-top: 20px;
+    background-color: white;
+    text-align: center;
+    vertical-align: middle;
+    margin: 12px;
+}
+
+div.me_1 {
+    text-align: center;
+    color: aliceblue;
+    font-weight: 900;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+div.ocpage>div>select,
+option {
+    width: auto;
+    font-size: inherit;
+    font-family: inherit;
+    background-color: #ffffff;
+    border-radius: 7px;
+    margin: 1% 0% 1% 0%;
+    padding: 2px;
+}
+
+div.ocpage>table>tr>td>input {
+
+ 
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0.5px;
+    height: 90%;
+    width: 90%;
+    margin: 1% 1% 1% 1%;
+    padding: 1px;
+    text-align: center;
+    font-size: inherit;
+    font-family: inherit;
+    border-radius: 7px;
+}
+
+input.firkmKeyin {
+    width: 50%;
+    font-size: inherit;
+    font-family: inherit;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    display: inline-block;
+    padding: 12px;
+
+}
+
+#mycarpage1_img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    /* height: 100%; */
+    /* width: clamp(320px, 512px, 1024px);
+    height: clamp(320px, 100%, 1024px); */
+
+}
+
+div.ocpage>div {
+    height: 100%;
+    text-align: center;
+    align-content: center;
+}
+
+div.ocpage+div {
+    text-align: center;
+}
+
+div.ocpage+div>button {
+    background-color: rgba(40, 163, 75, 0.3);
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 20%;
+    height: 100%;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+/* div.me_1:hover .me_2 {
+
+    display: block;
+    cursor: pointer;
+} */
+
+div.me_1:hover {
+    cursor: pointer;
+}
+
+.me_2 {
+    display: none;
+    text-align: center;
+    color: aliceblue;
+    font-weight: 200;
+    border-bottom: 1px white solid;
+}
+
+input[id*=crc],
+select {
+    width: 80%;
+    text-align: center;
+
+    font-size: inherit;
+    font-family: inherit;
+    border-radius: 12px;
+}
+
+h3 {
+    margin-top: 0px;
+    padding-top: 10px;
+}
+
+input#crc_submit {
+    vertical-align: middle;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    position: relative;
+    font-size: inherit;
+    font-family: inherit;
+    width: auto;
+}
+
+div.memberpage_button {
+    width: fit-content;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 15px;
+
+
+}
+
+div.memberpage_hashtag {
+    width: fit-content;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.9);
+    flex: 1;
+    color: black;
+    text-align: center;
+    margin: 2px;
+    border-radius: 12px;
+    padding: 10px 10px 10px 10px;
+
+}
+
+area.image_map_area {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+#mycarpage1 {
+    /* background-image: url('../IMG/carModel\ \(4\).jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100; */
+
+    /* height: 100%;
+    width: 100%; */
+
+}
+
+
+
+ol {
+    margin: 5px 0px;
+    padding-bottom: 12px;
+    list-style-type: none;
+}
+
+li {
+    border-bottom: 0.5px white solid;
+    margin: 5px 0px;
+
+    list-style-type: none;
+    padding-bottom: 8px;
+}
+
+dt {
+    margin: 5px 0px;
+    list-style-type: none;
+}
+
+dd {
+    margin: 5px 0px;
+    list-style-type: none;
+}
+
+
+#crc_tel:invalid {
+    border: red 1px solid;
+}
+
+#crc_tel:valid {
+    border: blue 1px solid;
+}
+
+div.chartdiv {
+    border: black 1px solid;
+    width: 69%;
+    height: 75%;
+    float: left;
+    bottom: 0%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact_addDiv {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    text-align: center;
+    margin: 12px;
+    border-radius: 12px;
+    display: inline-block;
+    padding: 10px 10px 10px 10px;
+    /* width: clamp(30%,30px,100%); */
+}
+
+div.container {
+    /* border-style: solid;
+    border-width: 1px; */
+    width: 100%;
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+
+}
+
+div.butoonDiv {
+    border-style: solid;
+    border-width: 1px;
+    width: 25%;
+    height: 75%;
+    bottom: 0%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+
+button.btnInLTDiv {
+    background-color: rgba(40, 163, 75, 0.3);
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+div.canvasDiv {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 10px, 10px, 10px, 10px;
+}
+
+canvas {
+    display: block;
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    margin-top: 35px;
+}
+
+/* p.tabcontent_p {
+    position: absolute;
+    padding-left: 20px;
+    margin: 0px;
+    width: 100%;
+    text-align: center;
+
+} */
+.footerImg{
+    width: 64px;
+}
+.areaClass:hover{
+cursor: pointer;
+}
+.footerText{
+    color:white;
+    font-size: inherit;
+}
+.wrap {
+    overflow: hidden;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+}
+
+table {
+    border-collapse: separate;
+    width: 100%;
+    border-spacing: 0;
+    border: 1px solid #6b675d;
+    color: black;
+    margin-top: 20px;
+    --min-size: 20;
+    --max-size: 30;
+    --font-size: calc((var(--min-size) * 1px) + (var(--max-size) - var(--min-size)) * ((100cqw - 320px) / (1920 - 320)));
+    font-size: clamp(var(--min-size) * 1px, var(--font-size), var(--max-size) * 1px);
+}
+
+th {
+    background-color: #6b675d;
+    color: #ffffff;
+    width: 25vw;
+    height: 75px;
+}
+
+
+
+td {
+    background-color: #f3f3f3;
+    width: 25vw;
+    height: 50px;
+    text-align: center;
+    border-top: 1px dotted #6b675d;
+    border-left: 1px dotted #6b675d;
+}
+
+tr:nth-of-type(2) td {
+    /* border-top: none; */
+}
+
+tr td:first-child {
+    /* border-left: none; */
+}
+
+th {
+    border-top: 1px dotted #ffffff;
+    border-left: 1px dotted #ffffff;
+}
+
+tr:nth-of-type(1) th {
+    border-top: none;
+}
+
+tr:first-child th:first-child {
+    border-top: none;
+    border-left: none;
+}
+
+tr:last-of-type {
+    border-bottom: 2px solid #6b675d;
+}
+
+/* ##Vertical Tabs -------------------------------------------------------------------------------------------------------- */
+* {
+    box-sizing: border-box
+}
+
+
+
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    display: block;
+    background-color: inherit;
+    color: white;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: rgba(252, 42, 0, 0.3);
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+    background-color: rgba(249, 87, 56, 0.3);
+}
+
+/* Style the tab */
+
+
+/* Style the tab content */
+
+
+.summary {
+
+    min-height: 50vh;
+    height: 100%;
+
+}
+
+/* ##Full Page Tabs---------------------------------------------------------------------------------  */
+/* Set height of body and the document to 100% to enable "full page tabs" */
+
+
+/* Style tab links */
+.tablink_ {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 16px;
+    --min-size: 14;
+    --max-size: 30;
+    --font-size: calc((var(--min-size) * 1px) + (var(--max-size) - var(--min-size)) * ((100cqw - 320px) / (1920 - 320)));
+    font-size: clamp(var(--min-size) * 1px, var(--font-size), var(--max-size) * 1px);
+    width: 25%;
+}
+
+.tablink_:hover {
+    background-color: #777;
+}
+
+
+
+#tablink_1:hover {
+    background-color: #777;
+}
+
+#tablink_2:hover {
+    background-color: #777;
+}
+
+#tablink_3:hover {
+    background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+
+
+#Home_ {
+    /* background-color: rgba(249, 87, 56, 0.3); */
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#News_ {
+    /* background-color: rgba(255, 200, 87, 0.3); */
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#Contact_ {
+    /* background-color: rgba(72, 201, 176, 0.3); */
+    background: rgba(0, 0, 0, 0.3);
+}
+
+#About_ {
+    /* background-color: rgba(74, 35, 90, 0.3); */
+    background: rgba(0, 0, 0, 0.3);
+}

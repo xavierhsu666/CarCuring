@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carzuo</title>
+    <link rel="stylesheet" href="./CSS/div_cs.css">
+    <link rel="icon" href="./IMG/icon.jpg" type="image/x-icon" />
+
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- <div id="box1" class="box" style="height: 20px;"></div> -->
+    <div class="gridcontainer">
+        <div class="grid_h">
+            <button id="defaultOpen" class="tablink_"
+                onclick="openPage('Home_', this, 'rgba(249, 87, 56, 0.3)')">Home</button>
+            <button id="button_News_" class="tablink_"
+                onclick="openPage('News_', this, 'rgba(255, 200, 87, 0.3)')">News</button>
+            <button id="button_Contact_" class="tablink_"
+                onclick="openPage('Contact_', this, 'rgba(72, 201, 176, 0.3)');load_LS_data_to_HTML();">Contact</button>
+            <button id="button_About_" class="tablink_"
+                onclick="openPage('About_', this, 'rgba(74, 35, 90, 0.3)')">About</button>
+        </div>
+        <div class="grid_me">
+
+            <div class="me_1" onclick="showMe2(this);">
+                <p class="Ptitle">PROFILE</p>
+                <p id="button_memberpage_" class="me_2"
+                    onclick="openPage('memberpage_', this, 'rgba(255, 200, 87, 0.3)');memberpage._isnewuser();">Member
+                </p>
+                <p id="button_itemchange_" class="me_2"
+                    onclick="openPage('itemchange_', this, 'rgba(255, 200, 87, 0.3)');itempage._loadTable('itemChange_table');">
+                    Maintain
+                    Cycle</p>
+                <p id="button_mycarpage_" class="me_2"
+                    onclick="openPage('mycarpage_', this, 'rgba(255, 200, 87, 0.3)');showMapHighlight();">Vehical</p>
+
+            </div>
+            <div class="me_1" onclick="showMe2(this);">
+                <p class="Ptitle">RECORDS</p>
+                <p id="button_ocpagelist_" class="me_2"
+                    onclick="openPage('ocpagelist_', this, 'rgba(255, 200, 87, 0.3)');ocpage._clickLinkHref();">Oil
+                    cons.</p>
+                <p id="button_ocpagelist_" class="me_2"
+                    onclick="openPage('nomalmainlist_', this, 'rgba(255, 200, 87, 0.3)');itempage._loadTable('nomalmainlist_table');">
+                    Normal main.</p>
+                <p id="button_ocpagelist_" class="me_2"
+                    onclick="openPage('unnomalmainlist_', this, 'rgba(255, 200, 87, 0.3)');itempage._loadTable('unnomalmainlist_table');">
+                    Unusually main.</p>
+            </div>
+            <div class="me_1" onclick="showMe2(this);">
+                <p class="Ptitle">DATA</p>
+                <p id="button_exportpage_" class="me_2"
+                    onclick="openPage('importpage_', this, 'rgba(255, 200, 87, 0.3)');"> IMPORT</p>
+                <p id="button_exportpage_" class="me_2"
+                    onclick="openPage('exportpage_', this, 'rgba(255, 200, 87, 0.3)');"> EXPORT</p>
+            </div>
+
+        </div>
+        <div class="grid_ma">
+            <div id="Home_" class="tabcontent_">
+                <h3>Summary</h3>
+                <div class="container summary">
+                    <div class="tab">
+                        <div class="tablinks">
+                            <!-- <button id="tablinks_1" class="tablink" onclick="openCity(event, 'London')"> Fuel
+                                cons.</button>
+                            <button class="tablink" onclick="openCity(event, 'Paris')"> Overhead.</button>
+                            <button class="tablink" onclick="openCity(event, 'Tokyo');getLatestRecordsKM();"> Maintain List</button> -->
+                            <p id="tablink_1" class="tablink"
+                                onclick="openCity(event, 'London');homepage.setHomePageChart();">Fuel</p>
+                            <p id="tablink_2" class="tablink"
+                                onclick="openCity(event, 'Paris');homepage.setCostChart();">Cost</p>
+                            <p id="tablink_3" class="tablink"
+                                onclick="openCity(event, 'Tokyo');getLatestRecordsKM();CureTable.addChgTracingTable();">
+                                Cure</p>
+                        </div>
+
+                        <div id="London" class="tabcontent active">
+
+                            <p style="padding-left: 20px;">Kilometer / per liter</p>
+
+                            <div class="canvasDiv1">
+                                <canvas id="chart"></canvas>
+                            </div>
+
+
+                        </div>
+
+                        <div id="Paris" class="tabcontent" style="display: none;">
+
+                            <p style="padding-left: 20px;">Costs per day</p>
+
+                            <div class="canvasDiv1">
+                                <canvas id="chart1"></canvas>
+                            </div>
+                        </div>
+
+                        <div id="Tokyo" class="tabcontent" style="display: none;">
+                            <p style="padding-left: 20px;" id="Kilometer_record">Kilometer record :</p>
+                            <div class="table_div">
+                                <table id="Kilometer_table">
+
+                                    <tr>
+                                        <th>ITEM</th>
+                                        <th>Date</th>
+                                        <th>ChgTime</th>
+                                        <th>ChgKM</th>
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="News_" class="tabcontent_">
+                <h3>What are the car maintenance items & common sense? 3 minutes to know the correct maintenance mileage
+                    and time</h3>
+
+                <p style="color:red;">Car maintenance tips: 5 must-know key items
+                    of the correct maintenance cycle of the car, according to the mileage or time into the factory
+                    maintenance?
+                    Car maintenance items, mileage and time list and recommendations</p>
+
+                <p>Today, Xiaobian will take you to quickly understand the key strategies and basic common sense of car
+                    maintenance projects in 3 minutes!
+                </p>
+                <img src="./IMG/new_pic1.jpg" alt="" style="width: 100%;">
+                <h4>Car maintenance tips: 5 must-know key items</h4>
+                <p> In the daily use of the car, there are 5 key points to pay special attention to, hurry up and note
+                    it!
+
+                    <b>Warm up</b> the car before driving:
+                    After starting the car, wait about 30 seconds for the car to warm up and allow the oil and engine to
+                    idle before driving.
+                    Avoid frequent driving for short distances: long distance driving is conducive to battery recharging
+                    and
+                    carbon removal, often driving <b>short distances</b>
+                    , or driving a car for a long time, not only can not achieve the above effects, but is easy to hurt
+                    the
+                    car.
+                    <b>Avoid long-term exposure to the sun</b>:
+                    avoid exposing the vehicle to the sun for a long time, which is easy to accelerate the aging of the
+                    interior; It should also be avoided to park in places with a large amount of fallen leaves and bird
+                    droppings, which can easily cause damage to the vehicle's air intake system.
+                    Avoid washing the car under the <b>scorching sun</b>:
+                    Washing the car under the scorching sun can easily cause the paint to lose its luster, in addition,
+                    waxing should be carried out in a straight line, avoiding waxing in a circle, which is easy to cause
+                    a
+                    concentric circle halo on the surface of the paint.
+                    Maintenance according to time & mileage:
+                    The car should be maintained at the factory according to the specified <b>time or mileage</b>, if
+                    there is
+                    a
+                    problem with the car, it can also be found as soon as possible in the maintenance process and
+                    overhauled
+                    as soon as possible.
+                </p>
+                <h4>The correct maintenance cycle of the car, according to the mileage or time into the factory
+                    maintenance?</h4>
+
+                <p>There are many types of car maintenance items, and the most basic regular maintenance items are the
+                    "five oils and three waters" that are known to motorists. Car owners can check the condition of five
+                    oils and three waters by themselves before they are about to hit the road or after a long drive to
+                    avoid problems in the vehicle. The so-called five oils refer to transmission oil, engine oil, brake
+                    oil, power steering oil and gasoline. And the three waters refer to tank water, battery water, and
+                    wiper water.
+
+                    (Further reading: If you want to know more about what "five oils and three waters" are, please refer
+                    to this article - What are five oils and three waters?) To maintain your car, it is essential to
+                    check one)
+
+                    And how often should the five oils and three waters be replaced? When the owner is buying a new car,
+                    if the car manufacturer tells you that you need to go back to the original factory for maintenance
+                    if you drive 5,000 kilometers in half a year, but when the owner drives for half a year and only
+                    runs 2,000 kilometers, does it need to go to the factory for maintenance? In terms of safety, 5,000
+                    kilometers or half a year must be maintained first, that is, when the mileage or time, one of the
+                    conditions is reached, it should be maintained in the factory once.
+
+                </p>
+                <p style="background-color:brown;">Even if you don't drive often, the opened engine oil will still
+                    oxidize and deteriorate after a long
+                    time, even if the mileage has not reached or the frequency of use of the car is not high, if it
+                    meets the replacement standards according to the time, it is still recommended to enter the factory
+                    for maintenance. For car owners with high frequency of use, car parts or accessories are easy to
+                    consume and age, so when the car reaches the mileage specified in the car maintenance, it must be
+                    maintained in the factory.</p>
+                <h4>Car maintenance items, mileage and time list and recommendations</h4>
+                <p>Most people will think that buying a car is easy and difficult to maintain, but as long as it is
+                    maintained regularly, so that the car can have complete maintenance and normal operation, the car
+                    can usually accompany the owner for a long time. The following list of 12 key items of car
+                    maintenance for your reference, car owners can also view the original technical manual on the car
+                    maintenance items and detailed suggestions!</p>
+                <table class="table table-bordered" style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <th width="15%" _msttexthash="318760" _msthash="132">Maintain items</th>
+                            <th _msttexthash="376688" _msthash="134">mileage</th>
+                            <th _msttexthash="288535" _msthash="135"> time</th>
+                        </tr>
+                        <tr>
+                            <td _msttexthash="133835" _msthash="136">Engine oil</td>
+                            <td _msttexthash="28119" _msthash="138">5k</td>
+                            <td _msttexthash="42536" _msthash="139">Half</td>
+                        </tr>
+                        <tr>
+                            <td _msttexthash="154297" _msthash="140">Brake fluid</td>
+                            <td _msttexthash="35282" _msthash="142">20k</td>
+                            <td _msttexthash="75803" _msthash="143">2 years</td>
+
+                        </tr>
+                        <tr>
+                            <td _msttexthash="309062" _msthash="144">Self-draining oil</td>
+                            <td _msttexthash="35282" _msthash="146">20k</td>
+                            <td _msttexthash="75803" _msthash="147">2 years</td>
+
+                        </tr>
+                        <tr>
+                            <td _msttexthash="116896" _msthash="148">Power oil</td>
+                            <td _msttexthash="35282" _msthash="150">20k</td>
+                            <td _msttexthash="75803" _msthash="151">2 years</td>
+
+                        </tr>
+                        <tr>
+                            <td _msttexthash="93639" _msthash="152">Gear oil</td>
+                            <td _msttexthash="35555" _msthash="154">50k</td>
+                            <td _msttexthash="76076" _msthash="155">5 years</td>
+
+                        </tr>
+                        <tr>
+                            <td _msttexthash="136877" _msthash="156">Tank water</td>
+                            <td _msttexthash="35282" _msthash="158">20k</td>
+                            <td _msttexthash="75803" _msthash="159">2 years</td>
+
+                        </tr>
+                        <tr>
+                            <td _msttexthash="135512" _msthash="160">Air filter</td>
+                            <td _msttexthash="35191" _msthash="162">10k</td>
+                            <td _msttexthash="5941663" _msthash="163">－</td>
+
+                        </tr>
+                        <tr>
+                            <td _msttexthash="260559" _msthash="164">Gasoline filter</td>
+                            <td _msttexthash="35282" _msthash="166">20k</td>
+                            <td _msttexthash="5941663" _msthash="167">－</td>
+
+                        </tr>
+                        <tr>
+                            <td _msttexthash="116766" _msthash="168">Mars plug</td>
+                            <td _msttexthash="35282" _msthash="170">20k</td>
+                            <td _msttexthash="5941663" _msthash="171">－</td>
+
+                        </tr>
+                        <tr>
+                            <td _msttexthash="186563" _msthash="172">accumulator</td>
+                            <td _msttexthash="35191" _msthash="174">10k</td>
+                            <td _msttexthash="5941663" _msthash="175">－</td>
+
+                        </tr>
+                        <tr>
+                            <td _msttexthash="49608" _msthash="176">tyre</td>
+                            <td _msttexthash="35464" _msthash="178">40k</td>
+                            <td _msttexthash="75985" _msthash="179">4 years</td>
+
+                        </tr>
+                        <tr>
+                            <td _msttexthash="47138" _msthash="180">belt</td>
+                            <td _msttexthash="35737" _msthash="182">70k</td>
+                            <td _msttexthash="5941663" _msthash="183">－</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Regular maintenance not only allows your car to be properly cared for, but also makes it safer for
+                    you to drive on the road, but don't forget to help your car with body damage insurance and theft
+                    damage insurance to ensure that your car can be compensated for repairing damage in the event of an
+                    accident. In addition to providing necessary compulsory insurance, Fubon Property & Casualty
+                    Insurance also has a fairly complete content of auto arbitrary insurance. Go to the Fubon Auto
+                    Insurance Zone now to view the detailed instructions, so that you and your car are all protected,
+                    and you can drive with more peace of mind!</p>
+            </div>
+            <div id="memberpage_" class="tabcontent_">
+                <h3>Member Page</h3>
+                <div id="memberpage_1"></div>
+                <!-- 下面這區隨著功能建立要一個一個隱藏起來 -->
+                <!-- <div style="display: inline-block;">
+                    <div class="memberpage_hashtag" id="memberpage_ncontacts"
+                        onclick="openPage('Contact_', button_Contact_, 'rgba(72, 201, 176, 0.3)')"
+                        style="width: fit-content;display: inline-block;cursor: pointer;">Saved 0 contacts
+                    </div>
+                    <div class="memberpage_hashtag">Saved
+                        0
+                        oil records</div>
+                    <div class="memberpage_hashtag">Saved
+                        0
+                        cost about
+                        repairing or maintainess
+                    </div>
+                    <div class="memberpage_hashtag">0 for
+                        normal maintain
+                    </div>
+                    <div class="memberpage_hashtag">0 for
+                        un-normal maintain
+                    </div>
+                    <div class="memberpage_hashtag">total
+                        average for oil cons. is 0 km/l
+                    </div>
+                </div> -->
+                <center>
+                    <div style="display: inline-block;padding-top: 20px;" id="memberpage_query"
+                        style="text-align: center;">
+                        <hr>
+                        <div class="contact_addDiv memberpage_button" onclick="memberpage._queryNameSpace();">
+                            Query all name space</div>
+                        <div class="contact_addDiv memberpage_button" onclick="memberpage._clearAll()">
+                            Clear all
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div style="display: block;padding-top: 10px;" id="memberpage_query_namespace">
+                    </div>
+                    <div style="display: block;padding-top: 10px;" id="memberpage_query_name">
+                    </div>
+                </center>
+
+
+            </div>
+
+            <div id="mycarpage_" class="tabcontent_">
+                <h3>mycarpage_</h3>
+                <p>Some news this fine day!</p>
+
+                <div id="mycarpage1">
+
+                    <!-- <img class="maparea" src="./IMG/carModel (3).jpg" usemap="#usa" id="mycarpage1_img"
+                        style="width: 512px;height: 512px;">  -->
+                    <img class="maparea" src="./IMG/carModel (3).jpg" id="mycarpage1_img" usemap="#usa" width="1024"
+                        height="1024">
+                    <map id="usa" name="usa">
+
+                        <area id="area1" target="" alt="FRONT" title="FRONT"
+                            onclick="mycarpage._switchPic('mycarpage1','mycarpage2');mycarpage._loadSortedTableNew('ER');"
+                            coords="314,490,159" shape="circle" class="areaClass">
+                        <area id="area2" target="" alt="BACK" title="BACK"
+                            onclick="mycarpage._switchPic('mycarpage1','mycarpage3');mycarpage._loadSortedTableNew('BS');"
+                            coords="821,206,158" shape="circle" class="areaClass">
+                        <area id="area3" target="" alt="BREAK" title="BREAK"
+                            onclick="mycarpage._switchPic('mycarpage1','mycarpage4');mycarpage._loadSortedTableNew('BR');"
+                            coords="497,695,47" shape="circle" class="areaClass">
+                        <area id="area4" target="" alt="WHEEL" title="WHEEL"
+                            onclick="mycarpage._switchPic('mycarpage1','mycarpage5');mycarpage._loadSortedTableNew('WH');"
+                            coords="936,455,44" shape="circle" class="areaClass">
+                    </map>
+                </div>
+
+                <div id="mycarpage2" style="display: none;" class="wrap">
+                    <div>
+                        <div class="contact_addDiv memberpage_button"
+                            onclick="mycarpage._switchPic('mycarpage2','mycarpage1');showMapHighlight();">
+                            BACK
+                        </div>
+                        <!-- <div class="contact_addDiv memberpage_button" onclick="mycarpage_saveTable('ER');">
+                            Save
+                        </div> -->
+                    </div>
+                    <br>FRONT
+                    <table id="mycarpage_ER">
+                        <tr>
+                            <th>ITEM</th>
+                            <th>TIME</th>
+                            <th>KM</th>
+                            <th>COST</th>
+                        </tr>
+
+                    </table>
+
+                </div>
+                <div id="mycarpage3" style="display: none;" class="wrap">
+
+                    <div>
+                        <div class="contact_addDiv memberpage_button"
+                            onclick="mycarpage._switchPic('mycarpage3','mycarpage1');showMapHighlight();">
+                            BACK
+                        </div>
+                        <!-- <div class="contact_addDiv memberpage_button" onclick="mycarpage_saveTable('BS');">
+                            Save
+                        </div> -->
+                    </div>
+                    <br>BACKSIDE
+                    <table id="mycarpage_BS">
+                        <tr>
+                            <th>ITEM</th>
+                            <th>TIME</th>
+                            <th>KM</th>
+                            <th>COST</th>
+                        </tr>
+
+                    </table>
+                </div>
+                <div id="mycarpage4" style="display: none;" class="wrap">
+
+                    <div>
+                        <div class="contact_addDiv memberpage_button"
+                            onclick="mycarpage._switchPic('mycarpage4','mycarpage1');showMapHighlight();">
+                            BACK
+                        </div>
+                        <!-- <div class="contact_addDiv memberpage_button" onclick="mycarpage_saveTable('BR');">
+                            Save
+                        </div> -->
+                    </div>
+                    <br>BREAK
+                    <table id="mycarpage_BR">
+                        <tr>
+                            <th>ITEM</th>
+                            <th>TIME</th>
+                            <th>KM</th>
+                            <th>COST</th>
+                        </tr>
+
+                    </table>
+                </div>
+                <div id="mycarpage5" style="display: none;" class="wrap">
+
+
+                    <div>
+                        <div class="contact_addDiv memberpage_button"
+                            onclick="mycarpage._switchPic('mycarpage5','mycarpage1');showMapHighlight();">
+                            BACK
+                        </div>
+                        <!-- <div class="contact_addDiv memberpage_button" onclick="mycarpage_saveTable('WH');">
+                            Save
+                        </div> -->
+                    </div>
+
+                    <br>WHEEL
+                    <table id="mycarpage_WH">
+                        <tr>
+                            <th>ITEM</th>
+                            <th>TIME</th>
+                            <th>KM</th>
+                            <th>COST</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="itemchange_" class="tabcontent_">
+                <h3>itemchange_</h3>
+                <p>Some news this fine day!</p>
+                <div>
+                    <div class="contact_addDiv memberpage_button" onclick="itempage._defaultTable();">
+                        Default
+                    </div>
+                    <div class="contact_addDiv memberpage_button" onclick="itempage._resetTable();">
+                        Reset
+                    </div>
+                    <div class="contact_addDiv memberpage_button" onclick="itempage._saveTable();">
+                        Save
+                    </div>
+                </div>
+                <div>
+
+                    <div class="table_div">
+                        <table style="margin-bottom: 0px;padding-bottom: 0px;" id="itemChange_table">
+                            <tr>
+                                <th>Sort</th>
+                                <th>Item</th>
+                                <th>Cost</th>
+                                <th>KM</th>
+                                <th>Day</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="table_addMarker">
+                        <div class="table_addMarker_btn" onclick="itempage._addBtn('itemChange_table');">+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="nomalmainlist_" class="tabcontent_">
+                <h3>nomalmainlist_</h3>
+
+                <div>
+                    <div class="contact_addDiv memberpage_button"
+                        onclick="normalunnormal._saveTable('nomalmainlist_');">
+                        Save
+                    </div>
+                </div>
+                <div class="table_div">
+                    <table style="margin-bottom: 0px;padding-bottom: 0px;" id="nomalmainlist_table">
+                        <tr>
+                            <th>Item</th>
+                            <th>Cost</th>
+                            <th>KM</th>
+                            <th>Day</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table_addMarker">
+                    <div class="table_addMarker_btn" onclick="itempage._addBtn('nomalmainlist_table');">+
+                    </div>
+                </div>
+            </div>
+            <div id="unnomalmainlist_" class="tabcontent_">
+                <h3>unnomalmainlist_</h3>
+
+                <div>
+                    <div class="contact_addDiv memberpage_button"
+                        onclick="normalunnormal._saveTable('unnomalmainlist_');">
+                        Save
+                    </div>
+                </div>
+                <div class="table_div">
+                    <table style="margin-bottom: 0px;padding-bottom: 0px;" id="unnomalmainlist_table">
+                        <tr>
+                            <th>Sort</th>
+                            <th>Item</th>
+                            <th>Cost</th>
+                            <th>KM</th>
+                            <th>Day</th>
+                        </tr>
+                    </table>
+                </div>
+                <div class="table_addMarker">
+                    <div class="table_addMarker_btn" onclick="itempage._addBtn('unnomalmainlist_table');">+
+                    </div>
+                </div>
+            </div>
+            <div id="ocpagelist_" class="tabcontent_">
+                <h3>ocpagelist_</h3>
+                <div class="ocpage">
+                    <table>
+                        <tr>
+                            <TH>ITEM</TH>
+                            <TH>Content</TH>
+                        </tr>
+                        <tr>
+                            <td><select name="" id="oc_input_oil_select" onchange="ocpage._getOilPrice();">
+                                    <option value="" style="display:none;">Price</option>
+                                    <option value="92">92</option>
+                                    <option value="95">95</option>
+                                    <option value="98">98</option>
+                                </select></td>
+                            <td> <input type="text" class="itemchange_table" name="" id="oc_input_price"
+                                    value="(auto key)" readonly="true">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Liter</td>
+                            <td><input class="itemchange_table" type="number" name="" id="oc_input_liter"></td>
+                        </tr>
+                        <tr>
+                            <td>KM</td>
+                            <td>
+                                <input class="itemchange_table" type="number" name="" id="oc_input_KM">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Date</td>
+                            <td>
+                                <input class="itemchange_table" type="date" name="" id="oc_input_date">
+                            </td>
+                        </tr>
+                    </table>
+
+
+                </div>
+                <div>
+                    <hr>
+
+                    <div class="contact_addDiv memberpage_button" onclick="ocpage._submitInput()">
+                        Save
+                    </div>
+                    <div class="contact_addDiv memberpage_button" onclick="ocpage._resetInput()">
+                        Reset
+                    </div>
+                    <div class="contact_addDiv memberpage_button" onclick="ocpage._getList()">
+                        List
+                    </div>
+                </div>
+
+                <hr>
+                <div id="ocpage_tableDiv" style="text-align: center;">
+                    <table id="ocpage_table"></table>
+                </div>
+            </div>
+            <!-- <div id="mpagelist_" class="tabcontent_">
+                <h3>mpagelist_</h3>
+                <p>Some news this fine day!</p>
+            </div>
+            <div id="otherpagelist_" class="tabcontent_">
+                <h3>otherpagelist_</h3>
+                <p>Some news this fine day!</p>
+            </div> -->
+
+
+            <div id="Contact_" class="tabcontent_">
+
+                <h3>Contact</h3>
+                <div style="text-align: left;
+                font-size: inherit;
+                font-family: inherit;
+                background-color: rgba(255, 255, 255, 0.9);
+                color: black;
+                display: inline-block;
+                padding: 10px 10px;
+            border-radius: 12px;
+            cursor: pointer;
+                " onclick="showContactAddOption();">Add Store</div>
+                <br>
+                <br>
+                <div id="contacts"></div>
+
+                <form action="" method="get" id="crc" style="display: none;">
+
+                    <div class="table_div">
+                        <table>
+                            <tr>
+                                <th>Item</th>
+                                <th>Input</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="crc_TW_area">City</label>
+                                </td>
+                                <td><select name="crc_TW_area" class="crcinput" id="crc_TW_area">
+                                        <option value="Taipei">Taipei</option>
+                                        <option value="Hsinchu">Hsinchu</option>
+                                        <option value="Miaoli">Miaoli</option>
+                                        <option value="Taichung">Taichung</option>
+                                        <option value="Tainan">Tainan</option>
+                                        <option value="Kaohsiung">Kaohsiung</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="crc_name">Store</label>
+                                </td>
+                                <td>
+                                    <input type="text" name="crc_name" id="crc_name" class="crcinput">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="crc_tel">Telephone</label>
+                                </td>
+                                <td>
+                                    <input type="tel" class="crcinput" name="crc_tel" id="crc_tel"
+                                        pattern="09[0-9]{2}-[0-9]{3}-[0-9]{3}">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="crc_loc">Address</label>
+                                </td>
+                                <td>
+                                    <input type="text" class="crcinput" name="crc_loc" id="crc_loc">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <input type="button" class="crcinput" value="Save" id="crc_submit"
+                                        onclick="contactpage.saveTowebLocal();">
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            </div>
+
+            <div id="About_" class="tabcontent_">
+                <h3>About</h3>
+                <p>The car we care about.</p>
+                <img src="./IMG/carModel (1).jpg" alt=""
+                    style="border-radius: 12px;text-align: center;width: 100%;height: 100%;">
+
+            </div>
+            <div id="exportpage_" class="tabcontent_">
+                <h3>exportpage_</h3>
+                <p>To Save your usage with txt.</p>
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Content</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Save name: </p>
+                        </td>
+                        <td><input type="text" name="" id="exportpage_name" class="itemchange_table"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="contact_addDiv memberpage_button" onclick="exportpage._exportLSData();">
+                                EXPORT
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+
+            </div>
+            <div id="importpage_" class="tabcontent_">
+                <h3>importpage_</h3>
+                <p>To Open your usage with txt.</p>
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Content</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Save name: </p>
+                        </td>
+                        <td><input type="file" name="" id="importpage_file" class="itemchange_table"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="contact_addDiv memberpage_button" onclick="importpage._importLSData();">
+                                Import
+                            </div>
+                            
+                        </td>
+                    </tr>
+                </table>
+
+
+            </div>
+        </div>
+        <div class="grid_f">
+            <div style="margin:20px;text-align: center;">
+                <div>
+                    <img class="footerImg" src="./IMG/facebook.png" alt="" id="icon_btn" onclick="exportLSData();">
+                    <img class="footerImg" src="./IMG/instagram.png" alt="">
+                    <img class="footerImg" src="./IMG/twitter.png" alt="">
+                </div>
+                <div class="footerText">
+                    © 2023 by Kazuo. Powered and secured by Kazuo.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Script AREA -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- <script type="text/javascript" src="./JS/jquery.maphilight.min.js"></script> -->
+
+    <script src="./JS/my_function.js"></script>
+    <script src="./JS/js_1.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.2/jquery.maphilight.min.js"></script>
+
+    <script src="./JS/jquery.rwdImageMaps.js"></script>
+    <script type="text/javascript">
+
+        function showMapHighlight() {
+            $('img[usemap]').rwdImageMaps();
+
+            $('img[usemap]').maphilight({
+                strokeColor: 'ffffff',
+                strokeWidth: '5'
+            });
+            const $mapImage = $('img[usemap]');
+            $(window)
+                // .on('load', function () {
+                //     $mapImage.rwdImageMaps();
+                //     $mapImage.maphilight();
+                // })
+
+                .on('resize', function () {
+                    // $mapImage.rwdImageMaps();
+                    $mapImage.maphilight({
+                        strokeColor: 'ffffff',
+                        strokeWidth: '5'
+                    });
+
+                })
+            // $('.maparea').maphilight({
+
+            //     strokeColor: 'ffffff',
+            //     strokeWidth: '5'
+            // });
+
+
+            // $(function () {
+            //     $('.maparea').maphilight({
+
+            //         strokeColor: 'ffffff',
+            //         strokeWidth: '5'
+            //     });
+            // });
+
+            // imgSizeFitAreaCoodrs();
+        }
+    </script>
+
+    <script>
+
+
+
+
+    </script>
+    <script src="./JS/main.js"></script>
+</body>
+
+</html>
